@@ -12,9 +12,9 @@ CMD [ "catalina.sh", "run" ]
 
   - we can create image by using this command `docker image build -t gameoflife:11.123`
   - **change the tag** `docker image tag gameoflife:11.123 9848016515/gameoflife:11.123`
-  - created image ![preview] (Screenshot 2022-12-24 222046.png)
+  - created image ![preview](Screenshot 2022-12-24 222046.png)
   - **push image to registry**  == `docker push 9848016515/gameoflife:11.123` (before that we have to login `docker login`)
-  - we can see here ![preview] (Screenshot 2022-12-24 223254.png)
+  - we can see here ![preview](Screenshot 2022-12-24 223254.png)
 # # # deploy pod
   ```yaml
   ---
@@ -71,8 +71,8 @@ spec:
       nodePort: 32000
 ```
 
-* ![preview] (Screenshot 2022-12-24 224516.png)
-* ![preview] (Screenshot 2022-12-24 224846.png)
+* ![preview](Screenshot 2022-12-24 224516.png)
+* ![preview](Screenshot 2022-12-24 224846.png)
 
 
 
@@ -97,7 +97,7 @@ CMD ["catalina.sh", "run"]
   - **change the tag** `docker image tag gameoflife:11.123 9848016515/openmrs:1.123`
   - created image ![preview] (Screenshot 2022-12-24 222046.png)
   - **push image to registry**  == `docker push 9848016515/openmrs:1.123` (before that we have to login `docker login`)
-  - we can see here ![preview] (Screenshot 2022-12-24 223255.png)
+  - we can see here ![preview](Screenshot 2022-12-24 223255.png)
 # # # deploy pod
   ```yaml
 ---
@@ -155,6 +155,6 @@ spec:
       nodePort: 32003
 ```
 
-* ![preview] (Screenshot 2022-12-24 224517.png)
-* ![preview] (Screenshot 2022-12-24 224847.png)
+* ![preview](Screenshot 2022-12-24 224517.png)
+* ![preview](Screenshot 2022-12-24 224847.png)
 
