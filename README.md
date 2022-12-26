@@ -12,7 +12,7 @@ CMD [ "catalina.sh", "run" ]
 
   - we can create image by using this command `docker image build -t gameoflife:11.123`
   - **change the tag** `docker image tag gameoflife:11.123 9848016515/gameoflife:11.123`
-  - created image ![preview](Screenshot 2022-12-24 222046.png)
+  - created image ![preview](D:\k8s\Screenshot 2022-12-24 222046.png)
   - **push image to registry**  == `docker push 9848016515/gameoflife:11.123` (before that we have to login `docker login`)
   - we can see here ![preview](Screenshot 2022-12-24 223254.png)
 # # # deploy pod
