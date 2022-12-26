@@ -71,7 +71,7 @@ spec:
       nodePort: 32000
 ```
 
-* ![preview](Screenshot 2022-12-24 224516.png)
+* ![preview](Screenshot 2022-12-24 222046.png)
 * ![preview](Screenshot 2022-12-24 224846.png)
 
 
