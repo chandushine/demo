@@ -156,5 +156,5 @@ spec:
 ```
 
 * ![preview](Screenshot 2022-12-24 224517.png)
-* ![preview](Screenshot 2022-12-24 224847.png)
+* ![preview](openmrs.png)
 
