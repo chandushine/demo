@@ -1,0 +1,3 @@
+---
+# vars file for role_structure
+tomcat_version: 10.1.5

@@ -1,0 +1,86 @@
+---
+# tasks file for role_structure
+- name: install java 11
+  ansible.builtin.apt:
+    name: openjdk-11-jdk
+    state: present
+    update_cache: yes
+- name: create group
+  ansible.builtin.group:
+    system: yes
+    name: tomcat
+    state: present
+- name: create user
+  ansible.builtin.user:
+    name: tomcat
+    create_home: yes
+    group: tomcat
+    home: /opt/tomcat
+    shell: /bin/false
+    state: present
+    system: yes
+- name: get url in tmp
+  ansible.builtin.get_url:
+    url: "https://www-eu.apache.org/dist/tomcat/tomcat-10/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
+    dest: /tmp
+    group: tomcat
+    owner: tomcat
+    mode: "01777"
+- name: untar
+  ansible.builtin.debug:
+    msg: untar the application in to opt/tomcat
+- name: untar
+  ansible.builtin.unarchive:
+    src: "/tmp/apache-tomcat-{{ tomcat_version }}.tar.gz"
+    dest: /opt/tomcat/
+    remote_src: yes
+- name: symbolic link
+  ansible.builtin.file:
+    src: "/opt/tomcat/apache-tomcat-{{ tomcat_version }}"
+    dest: /opt/tomcat/latest
+    owner: tomcat
+    group: tomcat
+    state: link
+- name: change ownership
+  ansible.builtin.file:
+    path: /opt/tomcat
+    owner: tomcat
+    group: tomcat
+    mode: "0777"
+    recurse: yes
+- name: give permission to sh
+  #  ansible.builtin.file:
+  #   path: "{{ item }}"
+  #   mode: "+x"
+  # with_fileglob:
+  #   - /opt/tomcat/latest/bin/*.sh
+  ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+- name: copy tomcat.service
+  ansible.builtin.copy:
+    src: tomcat.service
+    dest: /etc/systemd/system/tomcat.service
+- name: systemd service
+  ansible.builtin.systemd:
+    name: tomcat
+    daemon_reload: yes
+    enabled: yes
+    state: started
+- name: copy tomcat-users.xml
+  ansible.builtin.copy:
+    src: tomcat-users.xml
+    dest: /opt/tomcat/latest/conf/tomcat-users.xml
+- name: copy hostmaneger
+  ansible.builtin.copy:
+    src: context.xml
+    dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+- name: copy hostmaneger
+  ansible.builtin.copy:
+    src: context.xml1
+    dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+- name: systemd service
+  ansible.builtin.systemd:
+    name: tomcat
+    daemon_reload: yes
+    enabled: yes
+    state: restarted
+    
