@@ -14,7 +14,7 @@
         filename: mongodb-org-5.0
     - name: install mongod
       apt:
-        name: mongod
+        name: mongodb-org
         update_cache: yes
         state: present
     - name: systemd
