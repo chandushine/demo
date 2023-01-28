@@ -9,9 +9,9 @@
         state: present
     - name: create a list file for your MongoDB package
       ansible.builtin.apt_repository:
-        repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse
+        repo: "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse"
         state: present
-        filename: mongodb-org-5.0
+        filename: /etc/apt/sources.list.d/mongodb-org-5.0.list
     - name: install mongod
       apt:
         name: mongodb-org
