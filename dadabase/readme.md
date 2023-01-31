@@ -103,7 +103,7 @@ sudo apt-get install jenkins -y
 
 #### diclarative pipeline 
  
- ```json
+ ```yml
 pipeline {
     agent { label 'ansible' }
     stages {
