@@ -102,6 +102,7 @@ sudo apt-get install jenkins -y
 ![priview](./images/Screenshot%202023-01-31%20155550.png)
 
 #### diclarative pipeline 
+* link to mongodb.yml file ![priview](mongodb.ymlmongodb.yml)
  
  ```yml
 pipeline {
