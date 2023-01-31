@@ -1,0 +1,19 @@
+pipeline {
+    agent { label 'ansible' }
+    stages ('clone') {
+        stage ('clone') {
+            steps {
+               git url: "https://github.com/chandushine/demo.git",
+               branch: "main"
+            }
+            stage ('execute play book') {
+                steps {
+                    sh 'ansible-playbook -i hosts mongodb.yml'
+                }
+            }
+              
+
+        }
+    }
+
+}
