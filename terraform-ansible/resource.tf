@@ -20,7 +20,7 @@ resource "aws_instance" "node1" {
       "sudo apt install ansible -y",
       "ansible --version",
       "git clone https://github.com/chandushine/demo.git",
-      "cd demo/database/terraform-ansible",
+      "cd demo/terraform-ansible",
       "ansible-playbook -i hosts mongodb.yml"
     ]
   }
